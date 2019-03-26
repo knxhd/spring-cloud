@@ -7,4 +7,9 @@ package com.example.serverConfig.controller;
  * @date 2019/3/26 17:05
  */
 public class TestController {
+
+    public static void main(String[] args) {
+
+    }
+
 }
