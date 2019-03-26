@@ -1,0 +1,19 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /ida
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+spring:
+  application:
+    name: server-zuul
+zuul:
+  routes:
+    api-a:
+      path: /api-member/**
+      service-id: member-server
+    api-b:
+      path: /api-order/**
+      service-id:  order-server
