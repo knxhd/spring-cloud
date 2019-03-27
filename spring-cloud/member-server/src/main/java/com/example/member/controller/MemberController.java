@@ -1,12 +1,13 @@
 package com.example.member.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.member.entity.UserEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @ClassName MemberController
@@ -34,5 +35,27 @@ public class MemberController {
         memberList.add("柯南小海盗-价格");
         memberList.add("王者荣耀-价格");
         return memberList;
+    }
+
+
+    @RequestMapping(value = "getTestGetParameter", method = RequestMethod.POST)
+    public List<UserEntity> getTestGetParameter(@RequestBody UserEntity userEntity) {
+        List<UserEntity> userEntityList = new ArrayList<>();
+        userEntityList.add(userEntity);
+        return userEntityList;
+    }
+
+    @RequestMapping(value = "getTestParameter", method = RequestMethod.GET)
+    public List<String> getTestParameter(@RequestParam(value = "strings") String strings){
+        List<String> stringList=new ArrayList<>();
+        Collections.addAll(stringList,strings);
+        return stringList;
+    }
+
+    @RequestMapping(value = "getTestArrayParameter", method = RequestMethod.GET)
+    public List<String> getTestArrayParameter(@RequestParam(value = "strings") String[] strings){
+        List<String> stringList=new ArrayList<>();
+        Collections.addAll(stringList,strings);
+        return stringList;
     }
 }

@@ -7,3 +7,6 @@ spring:
     name: server-feign
 server:
   port: 8081
+feign:
+  httpclient:
+    connection-timeout: 2000

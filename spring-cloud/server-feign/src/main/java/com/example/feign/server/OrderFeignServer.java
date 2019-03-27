@@ -1,8 +1,8 @@
 package com.example.feign.server;
 
+import com.example.feign.entity.UserEntity;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,4 +18,14 @@ public interface OrderFeignServer {
     @RequestMapping(method = RequestMethod.GET,value = "/MemberController/getAllMember")
     public List<String> getAllMember();
 
+
+    @RequestMapping(method = RequestMethod.POST,value = "/MemberController/getTestGetParameter")
+    public List<UserEntity> getTestGetParameter(@RequestBody UserEntity userEntity);
+
+    @RequestMapping(method = RequestMethod.GET,value = "/MemberController/getTestParameter")
+    public List<String> getTestParameter(@RequestParam(value = "strings") String strings);
+
+
+    @RequestMapping(method = RequestMethod.GET,value = "/MemberController/getTestArrayParameter")
+    public List<String> getTestArrayParameter(@RequestParam(value = "strings") String strings[]);
 }
