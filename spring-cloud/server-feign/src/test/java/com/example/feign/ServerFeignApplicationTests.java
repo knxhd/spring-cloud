@@ -1,4 +1,4 @@
-package com.example.orderFeign;
+package com.example.feign;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class OrderFeignServerApplicationTests {
+public class ServerFeignApplicationTests {
 
     @Test
     public void contextLoads() {
